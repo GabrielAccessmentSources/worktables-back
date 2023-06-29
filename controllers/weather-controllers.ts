@@ -14,7 +14,6 @@ export const getWeatherByLocation = async(req: Request, res: Response) => {
 
         res.json(weatherData);
     } catch (error) {
-        throw new Error("Worktables - Couldnt find Data");
-        // res.status(404).send("Worktables - Couldnt find Data");
+        res.status(404).send("Worktables - Couldnt find Data");
     }
 };

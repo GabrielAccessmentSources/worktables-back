@@ -10,3 +10,5 @@ app.use("/weather", weatherRoutes);
 app.listen(port, () => {
     console.log(`Worktables Listening on Port ${port}`);
 });
+
+export default app;

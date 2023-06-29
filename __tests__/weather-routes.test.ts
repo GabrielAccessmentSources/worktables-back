@@ -1,22 +1,15 @@
-import { Request, Response, NextFunction } from "express";
+import request from "supertest";
 
-import { weatherRoutes } from "../routes/weather-routes";
+import app from "../index";
 
 describe("Weather routes", () => {
     it("should test weather route", async () => {
         const location = "London";
 
+        const response = await request(app)
+            .post("/weather")
+            .send({ location });
 
-        // Mock the request and response objects
-        const req = { body: { location } } as Request;
-        const res = {} as Response;
-        const next = {} as NextFunction;
-
-        // Call the router's middleware with the mocked request, response, and next function
-        await weatherRoutes.handle(req, res, next);
-
-        // Assert the response
-        expect(res.json).toHaveBeenCalledWith(/* expected weather data */);
-        expect(res.status).not.toHaveBeenCalled();
+        expect(response.status).toBe(200);
     });
 });
