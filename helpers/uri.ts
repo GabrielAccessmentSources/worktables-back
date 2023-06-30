@@ -1,0 +1,1 @@
+export const uri = "http://api.weatherapi.com/v1";
