@@ -5,7 +5,7 @@ import { uri } from "../helpers/uri";
 import { WeatherResponseType } from "../helpers/types";
 
 export const getWeatherByLocation = async(req: Request, res: Response) => {
-    const { location } = req.body;
+    const { location }: { location: string } = req.body;
     try {
         const url = `${uri}/current.json?key=533dda67764d4135ad4172805232906&q=${location}&aqi=no`;
 
